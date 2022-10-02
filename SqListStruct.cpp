@@ -29,7 +29,8 @@ int InitSqList(SqList& l)
 void DestoryList_Sq(SqList& l)
 {
 	free(l.elem); // 释放分配的内存
-	l.elem = NULL;
+	l.elem = NULL; // 释放分配的内存之后，但是指针还在，再令其为NULL
+	// 记住，一定要先free内存，在命令指针，如果先命令指针，那么占用的内存地址就找不到了，也就没办法释放了
 	l.length = 0;
 	l.listSize = 0;
 }
